@@ -1,4 +1,6 @@
 from gymnasium.envs.toy_text.taxi import TaxiEnv
+import matplotlib.pyplot as plt
+
 class TaxiEnvExtended(TaxiEnv):
     def __init__(self, render_mode="rgb_array", *args, **kwargs):
         super(TaxiEnvExtended, self).__init__(render_mode=render_mode, *args, **kwargs)
@@ -14,5 +16,11 @@ class TaxiEnvExtended(TaxiEnv):
     def reset(self, *args, **kwargs):
         self.actual_steps = 0
         return super().reset(*args, **kwargs)
+    
+    def imgRender(self):
+        img = super().render()
+        plt.imshow(img)
+        plt.axis('off')
+        plt.show()
     
     
