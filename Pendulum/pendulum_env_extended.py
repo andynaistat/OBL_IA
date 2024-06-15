@@ -15,3 +15,6 @@ class PendulumEnvExtended(PendulumEnv):
     def reset(self, *args, **kwargs):
         self.actual_steps = 0
         return super().reset(*args, **kwargs)
+    
+    def render(self, mode='human'):
+        return super().render(mode=mode)
